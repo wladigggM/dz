@@ -24,39 +24,40 @@ CREATE TABLE IF NOT EXISTS rejiser
 	);
 
 
-CREATE TABLE IF NOT EXISTS filmInfo(
-idFilm INTEGER,
-idAkter INTEGER,
-FOREIGN KEY (idFilm) REFERENCES films (id),
-FOREIGN KEY (idAkter) REFERENCES akter (id)
+CREATE TABLE IF NOT EXISTS filmInfo
+(
+	idFilm INTEGER,
+	idAkter INTEGER,
+	FOREIGN KEY (idFilm) REFERENCES films (id),
+	FOREIGN KEY (idAkter) REFERENCES akter (id)
 );
 
 INSERT INTO akter (aname) VALUES
-('Сильвестр Сталлоне'),
-('Джейсон Стейтем'),
-('Арнольд Шварцнегер'),
-('Микки Рурк'),
-('Чак Норис');
+	('Сильвестр Сталлоне'),
+	('Джейсон Стейтем'),
+	('Арнольд Шварцнегер'),
+	('Микки Рурк'),
+	('Чак Норис');
 
 INSERT INTO rejiser (rname) VALUES
-('Сильвестр Сталлоне'),
-('Кори Юэнь');
+	('Сильвестр Сталлоне'),
+	('Кори Юэнь');
 
 INSERT INTO films (film,idRejiser) VALUES
-('Рокки',1),
-('Рэмбо',1),
-('Неудержимые',1),
-('Перевозчик',2);
+	('Рокки',1),
+	('Рэмбо',1),
+	('Неудержимые',1),
+	('Перевозчик',2);
 
 INSERT INTO filmInfo (idFilm,idAkter) VALUES
-(1,1),
-(2,1),
-(3,1),
-(3,2),
-(3,3),
-(3,4),
-(3,5),
-(4,2);
+	(1,1),
+	(2,1),
+	(3,1),
+	(3,2),
+	(3,3),
+	(3,4),
+	(3,5),
+	(4,2);
 
 
 
