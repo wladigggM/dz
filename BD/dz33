@@ -1,0 +1,66 @@
+DROP TABLE IF EXISTS filmInfo;
+DROP TABLE IF EXISTS akter;
+DROP TABLE IF EXISTS films;
+DROP TABLE IF EXISTS rejiser;
+
+CREATE TABLE IF NOT EXISTS films
+(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	film TEXT,
+	idRejiser INTEGER,
+	FOREIGN KEY (idRejiser) REFERENCES rejiser(id)
+);
+
+CREATE TABLE IF NOT EXISTS akter
+(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	aname TEXT
+	);
+
+CREATE TABLE IF NOT EXISTS rejiser
+(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	rname TEXT
+	);
+
+
+CREATE TABLE IF NOT EXISTS filmInfo(
+idFilm INTEGER,
+idAkter INTEGER,
+FOREIGN KEY (idFilm) REFERENCES films (id),
+FOREIGN KEY (idAkter) REFERENCES akter (id)
+);
+
+INSERT INTO akter (aname) VALUES
+('Сильвестр Сталлоне'),
+('Джейсон Стейтем'),
+('Арнольд Шварцнегер'),
+('Микки Рурк'),
+('Чак Норис');
+
+INSERT INTO rejiser (rname) VALUES
+('Сильвестр Сталлоне'),
+('Кори Юэнь');
+
+INSERT INTO films (film,idRejiser) VALUES
+('Рокки',1),
+('Рэмбо',1),
+('Неудержимые',1),
+('Перевозчик',2);
+
+INSERT INTO filmInfo (idFilm,idAkter) VALUES
+(1,1),
+(2,1),
+(3,1),
+(3,2),
+(3,3),
+(3,4),
+(3,5),
+(4,2);
+
+
+
+
+-- SELECT aname FROM filmInfo, akter, films WHERE idAkter = akter.id AND films.film = 'Неудержимые' AND idFilm = films.id
+-- SELECT rname FROM rejiser, films WHERE idRejiser = rejiser.id AND films.film = 'Перевозчик'
+-- SELECT rname, aname FROM filmInfo, films, rejiser, akter WHERE idRejiser = rejiser.id AND idAkter = akter.id AND idFilm = films.id AND films.film = 'Неудержимые'
