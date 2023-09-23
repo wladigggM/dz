@@ -1,79 +1,48 @@
-"""
-ЗАДАНИЕ 1 (Обязательно)
-работа творческая, опишите в свободной форме идеи и зависимости вашего проекта
-пример можно посмотреть здесь https://github.com/makarova1507ana/python323/tree/main/%D0%9E%D0%9E%D0%9F/%D0%BA%D0%BE%D1%80%D0%B7%D0%B8%D0%BD%D0%B0%20%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%BE%D0%B2
-самое задание
-Создать сервис по просмотру сериала
-Для данного задания понадобится класс Сериал(название, год выхода, список актеров, режиссер, жанр, сезоны) (для сезона рекомендуется создать свой класс с атрибутами название кол-серий, список серий)
-можете выбрать любые 2 функциональности из списка ниже
-●	реализовать общий список сериалов
-●	реализовать возможность добавлять список любимых сериалов
-●	реализовать возможность добавлять список любимых сезонов
-●	реализовать возможность добавлять список любимых серий
-●	Необходимо реализовать поиск по номеру серии, названию сезонов, названию сериалов
-
-"""
-
-from Series import Series
-from Season import Season
-
-#   Список всех сериалов
-
-series_list = [Series('Острые козырьки', '13 сентября 2013г - 3 апреля 2022',
-                      ['Киллиан Мерфи', 'Хелен Маккрори', 'Пол Андерсон', 'Софи Рандл', 'Джо Коул', 'Финн Коул',
-                       'Аннабелль Уоллис', 'Сэм Нилл', 'Гарри Киртон', 'Нед Деннехи', 'Наташа О’Кифф', 'Том Харди',
-                       'Эйдан Гиллен', 'Эдриен Броуди', 'Аня Тейлор-Джой'], 'Отто Баферст(1 сезон)', 'драма/криминал',
-                      6), Series('Пацаны', '26 июля 2019',
-                                 ['Карл Урбан', 'Джек Куэйд', 'Энтони Старр', 'Эрин Мориарти', 'Доминик Макеллиготт',
-                                  'Джесси Т. Ашер', 'Лаз Алонсо', 'Чейс Кроуфорд'], 'Дэн Трахтенберг(1 серия 1 сезон)',
-                                 'супергероика/фантастика/боевик/чёрная комедия', 3)]
-
-favorite_series_list = []
+import sqlite3 as sql
 
 
-#   Отображение списка всех сериалов
-
-def show_series(series_list=None):
-    if series_list is None:
-        series_list = []
-    for series in series_list:
-        series.show()
-        print('\n')
+def open_file(file_name: str, empty_list: list):
+    with open(f'{file_name}', 'r', encoding='UTF-8') as f:
+        for line in f.readlines():
+            line = line.split(',')
+            empty_list.append(tuple(line))
 
 
-#   Добавление сериала в спиоск любимых сериалов
-
-def add_favorite_series(series_list=None):
-    add_end = True
-    if series_list is None:
-        series_list = []
-    while add_end:
-        favorite_inp = input(
-            'Введите название сериала который хотите добавить в "список любимых сериалов"'
-            '(введите 0 чтобы закончить)\n>')
-        if favorite_inp == '0':
-            add_end = False
-        else:
-            for series in series_list:
-                if str(series.name).upper() == str(favorite_inp).upper():
-                    favorite_series_list.append(series.name)
+def insert_data(insert_list: list, how_values: int):
+    if how_values == 3:
+        for el in insert_list:
+            cur.execute("""
+            INSERT INTO salespeople (sname,city,comm) VALUES(?,?,?)""", (el[0], el[1], el[2]))
+    elif how_values == 4:
+        for el in insert_list:
+            cur.execute("""
+            INSERT INTO customers (cname,city,rating,id_sp) VALUES(?,?,?,?)""", (el[0], el[1], el[2], el[3]))
 
 
-#   Отображение списка любимых сериалов
+with sql.connect('new.db') as conn:
+    cur = conn.cursor()
+    cur.executescript("""
+    CREATE TABLE IF NOT EXISTS salespeople(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        sname TEXT NOT NULL,
+        city TEXT NOT NULL,
+        comm INTEGER
+        );
+        
+    CREATE TABLE IF NOT EXISTS customers(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        cname  TEXT NOT NULL,
+        city TEXT NOT NULL,
+        rating  INTEGER NOT NULL,
+        id_sp INTEGER NOT NULL,
+        FOREIGN KEY (id_sp) REFERENCES salespeople (id)
+        );
+    """)
+    sales_list = []
+    customers_list = []
 
-def show_favorite_series(favorite_series_list):
-    print(f'Список любимых сериалов: {favorite_series_list}\n')
+    open_file('s.txt', sales_list)
+    insert_data(sales_list, 3)
 
-
-while True:
-    choice = int(input('Выберите действие:\n1. Показать общий список сериалов\n'
-                       '2. Добавить сериал в "список любимых сериалов"\n3. Показать "cписок любимых сериалов"\n'
-                       '(Введите 0 чтобы прервать процесс)\n>'))
-    if choice == 0:
-        break
-    elif choice == 1:
-        show_series(series_list)
-    elif choice == 2:
-        add_favorite_series(series_list)
-    elif choice == 3:
-        show_favorite_series(favorite_series_list)
+    open_file('c.txt', customers_list)
+    insert_data(customers_list, 4)
