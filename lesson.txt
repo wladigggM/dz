@@ -32,13 +32,13 @@
 Решить задачу
 Создать класс товар (имя, цена, тип), реализовать метод по редактированию цены товара (не может быть меньше 0)
 
-Добавить  коммит в репозиторий с указанием " файл.py  added
+Добавить  коммит в репозиторий с указанием " new_class.py  added
 Params for class Product:
 
 @name - name of product
-@cost - cost of product
-@type - type of product
-@cost - updating cost is the method of product "
+@price - price of product
+@types - types of product
+@value - updating price is the method of product "
 
 Отправить измения на удаленный репозиторий
 
