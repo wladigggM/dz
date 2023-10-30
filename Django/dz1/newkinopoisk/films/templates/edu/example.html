@@ -1,0 +1,45 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{% static 'example/CSS/style.css' %}">
+</head>
+<body>
+<h1>это тайтл(большими буквами): {{title|upper}}</h1>
+<h2>это меню: (список){{menu|join:" "}}</h2>
+<p>это нум число: {{num_float}}</p>
+<p>это инт число: {{num_int}}</p>
+<p>это множество: {{set}}</p>
+<p>это словарь: {{dict.1}}</p>
+<div>это объект: открытый аттрибут {{obj.a}} закрытый аттрибут {{obj.b}}</div>
+------ НАЧАЛО ЦИКЛА ------
+    {% for el in movies %}
+        <hr>
+        <br>
+        <span>id: {{el.id}}</span><br>
+
+        {% if el.title == 'Movie1'%}
+            <p>САМЫЙ ЛУЧШИЙ ФИЛЬМ</p>
+        {% elif el.title == 'Movie2' %}
+            <p>Нормальный фильм</p>
+        {% else %}
+            <p>Плохой фильм</p>
+        {% endif%}
+
+<span>tittle: {{el.title}}</span><br>
+<span>descr: {{el.description}}</span><br><br>
+
+------ КОНЕЦ ЦИКЛА ------
+
+<!--        {% if not forloop.last %} &lt;!&ndash;Если не последняя итерация, отображать hr &ndash;&gt;-->
+<!--            <hr>-->
+<!--        {% endif %}-->
+    {% endfor %}
+
+</body>
+</html>
