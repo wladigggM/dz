@@ -1,0 +1,49 @@
+{% extends 'testapp/base/base.html' %}
+{% block content%}
+{% load static %}
+
+    <div class="container mt-5">
+        <h2 class="fs-1 text-center">Наши авторы</h2>
+
+        <main>
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="{% static 'testapp/img/dostoevsky.jpg' %}" class="img card-img-top" alt="Фёдор Достоевский">
+                            <div class="card-body">
+                                <h5 class="card-title">Фёдор Достоевский</h5>
+                                <p class="card-text">Один из величайших романистов в истории, автор "Преступления и
+                                    наказания", "Братьев Карамазовых" и многих других произведений.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="{% static 'testapp/img/tolstoy.jpeg' %}" class="img card-img-top" alt="Лев Толстой">
+                            <div class="card-body">
+                                <h5 class="card-title">Лев Толстой</h5>
+                                <p class="card-text">Автор "Войны и мира" и "Анны Карениной", Толстой считается одним из
+                                    величайших писателей в истории литературы.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="{% static 'testapp/img/bulgakov.jpg' %}" class="img card-img-top" alt="Михаил Булгаков">
+                            <div class="card-body">
+                                <h5 class="card-title">Михаил Булгаков</h5>
+                                <p class="card-text">Знаменитый русский писатель и драматург, автор "Мастера и
+                                    Маргариты", "Белой гвардии" и многих других произведений.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+{% endblock %}

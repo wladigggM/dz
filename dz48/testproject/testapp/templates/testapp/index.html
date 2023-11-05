@@ -1,0 +1,154 @@
+{% extends 'testapp/base/base.html' %}
+{% block content%}
+{% load static %}
+<main>
+    <div class="container">
+        <div class="mb-5">
+            <div class="d-flex justify-content-sm-between align-items-center">
+                <div class="col-5">
+                    <h3 class="fs-2 text-center">Добро пожаловать в нашу</h3>
+                    <h3 class="fs-2 text-center">Онлайн-Библиотеку!</h3>
+                    <p> Здесь вы найдете огромное количество книг различных жанров, авторов и направлений.
+                        Наша миссия – делать чтение доступным и удобным для каждого, независимо от местоположения и
+                        времени суток.
+                        Окунитесь в мир литературы без ограничений, выбрав интересующий вас том и наслаждаясь чтением
+                        прямо из вашего браузера.
+                        Приглашаем вас в путешествие по страницам нашей библиотеки. Читайте, исследуйте,
+                        вдохновляйтесь!</p>
+                </div>
+                <video controls class="w-50">
+                    <source src="{% static 'testapp/media/video/Промо-видео.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+    <div class="pt-5 pb-5 back">
+        <div class="container">
+            <h2 class="fs-3 text-center mb-5">Популярные книги</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <img src="{% static 'testapp/img/Война и мир.jpg' %}" class="card-img-top" alt="Обложка Война и мир"
+                             style="height: 400px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5>Война и мир</h5>
+                            <p><b>Автор:</b> Лев Толстой</p>
+                            <p><a href="https://ilibrary.ru/text/11/index.html" target="_blank"
+                                  class="btn btn-primary">Перейти к чтению</a></p>
+                            <audio controls class="w-100">
+                                <source src="{% static 'testapp/media/audio/война и мир.mp3' %}" type="audio/mp3">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <img src="{% static 'testapp/img/Мастер и Маргарита.jpg' %}" class="card-img-top" alt="Обложка Мастер и Маргарита"
+                             style="height: 400px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5>Мастер и Маргарита</h5>
+                            <p><b>Автор:</b> Михаил Булгаков</p>
+                            <p><a href="http://masterimargo.ru/book.html" target="_blank"
+                                  class="btn btn-primary">Перейти к чтению</a></p>
+                            <audio controls class="w-100">
+                                <source src="{% static 'testapp/media/audio/мастер и маргарита.mp3' %}" type="audio/mp3">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <img src="{% static 'testapp/img/Преступление и наказание.jpg' %}" class="card-img-top"
+                             alt="Обложка Преступление и наказание" style="height: 400px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5>Преступление и наказание</h5>
+                            <p><b>Автор:</b> Фёдор Достоевский</p>
+                            <p><a href="https://ilibrary.ru/text/69/p.1/index.html" target="_blank"
+                                  class="btn btn-primary">Перейти к чтению</a></p>
+                            <audio controls class="w-100">
+                                <source src="{% static 'testapp/media/audio/преступление и наказание.mp3' %}" type="audio/mp3">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <img src="{% static 'testapp/img/Идиот.jpg' %}" class="card-img-top" alt="Обложка Идиот"
+                             style="height: 400px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5>Идиот</h5>
+                            <p><b>Автор:</b> Фёдор Достоевский</p>
+                            <p><a href="https://ilibrary.ru/text/94/index.html" target="_blank"
+                                  class="btn btn-primary">Перейти к чтению</a></p>
+                            <audio controls class="w-100">
+                                <source src="{% static 'testapp/media/audio/идиот.mp3' %}" type="audio/mp3">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pt-5 pb-5">
+        <div class="container">
+            <h2 class="fs-3 text-center mb-5">Новости</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="fs-5 card-title">Новое поступление книг!</h4>
+                            <p class="card-text">Описание новости...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="fs-5 card-title">Событие года!</h4>
+                            <p class="card-text">Подробнее о событии...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="fs-5 card-title">Что-то еще интересное</h4>
+                            <p class="card-text">Интересные подробности...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pt-5 pb-5 back">
+        <div class="container">
+            <h2 class="fs-3 text-center mb-5">Что говорят наши читатели</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <blockquote class="blockquote">
+                        <p>Отличная онлайн-библиотека! Нашел много интересного.</p>
+                        <p class="blockquote-footer">Александр</p>
+                    </blockquote>
+                </div>
+                <div class="col-md-4">
+                    <blockquote class="blockquote">
+                        <p>Легко и удобно читать онлайн.</p>
+                        <p class="blockquote-footer">Марина</p>
+                    </blockquote>
+                </div>
+                <div class="col-md-4">
+                    <blockquote class="blockquote">
+                        <p>Большой выбор книг на любой вкус!</p>
+                        <p class="blockquote-footer">Иван</p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock%}

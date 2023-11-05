@@ -1,0 +1,75 @@
+{% extends 'testapp/base/base.html' %}
+{% block content%}
+{% load static %}
+
+    <div class="container mt-5">
+        <main>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <img src="{% static 'testapp/img/Война и мир.jpg' %}" class="card-img-top" alt="Обложка Война и мир"
+                            style="height: 400px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5>Война и мир</h5>
+                            <p><b>Автор:</b> Лев Толстой</p>
+                            <p><a href="https://ilibrary.ru/text/11/index.html" target="_blank"
+                                    class="btn btn-primary">Перейти к чтению</a></p>
+                            <audio controls class="w-100">
+                                <source src="{% static 'testapp/media/audio/война и мир.mp3' %}" type="audio/mp3">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <img src="{% static 'testapp/img/Мастер и Маргарита.jpg' %}" class="card-img-top" alt="Обложка Мастер и Маргарита"
+                            style="height: 400px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5>Мастер и Маргарита</h5>
+                            <p><b>Автор:</b> Михаил Булгаков</p>
+                            <p><a href="http://masterimargo.ru/book.html" target="_blank"
+                                    class="btn btn-primary">Перейти к чтению</a></p>
+                            <audio controls class="w-100">
+                                <source src="{% static 'testapp/media/audio/мастер и маргарита.mp3' %}" type="audio/mp3">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <img src="{% static 'testapp/img/Преступление и наказание.jpg' %}" class="card-img-top"
+                            alt="Обложка Преступление и наказание" style="height: 400px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5>Преступление и наказание</h5>
+                            <p><b>Автор:</b> Фёдор Достоевский</p>
+                            <p><a href="https://ilibrary.ru/text/69/p.1/index.html" target="_blank"
+                                    class="btn btn-primary">Перейти к чтению</a></p>
+                            <audio controls class="w-100">
+                                <source src="{% static 'testapp/media/audio/преступление и наказание.mp3' %}" type="audio/mp3">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <img src="{% static 'testapp/img/Идиот.jpg' %}" class="card-img-top" alt="Обложка Идиот"
+                            style="height: 400px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5>Идиот</h5>
+                            <p><b>Автор:</b> Фёдор Достоевский</p>
+                            <p><a href="https://ilibrary.ru/text/94/index.html" target="_blank"
+                                    class="btn btn-primary">Перейти к чтению</a></p>
+                            <audio controls class="w-100">
+                                <source src="{% static 'testapp/media/audio/идиот.mp3' %}" type="audio/mp3">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+{% endblock %}
